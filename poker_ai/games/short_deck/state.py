@@ -43,7 +43,7 @@ def new_game(
     """
     pot = Pot()
     players = [
-        ShortDeckPokerPlayer(player_i=player_i, initial_chips=10000, pot=pot)
+        ShortDeckPokerPlayer(player_i=player_i, initial_chips=100, pot=pot)
         for player_i in range(n_players)
     ]
     if card_info_lut:
@@ -73,8 +73,8 @@ class ShortDeckPokerState:
     def __init__(
         self,
         players: List[ShortDeckPokerPlayer],
-        small_blind: int = 50,
-        big_blind: int = 100,
+        small_blind: int = 1,
+        big_blind: int = 2,
         lut_path: str = ".",
         pickle_dir: bool = False,
         load_card_lut: bool = True,
@@ -450,7 +450,7 @@ class ShortDeckPokerState:
         actions: List[Optional[str]] = []
         if self.current_player.is_active:
             actions += ["fold", "call"]
-            if self._n_raises < 3:
+            if self._n_raises < 10:
                 # In limit hold'em we can only bet/raise if there have been
                 # less than three raises in this round of betting, or if there
                 # are two players playing.
