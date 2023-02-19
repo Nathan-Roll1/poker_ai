@@ -34,7 +34,7 @@ setuptools.setup(
     description="Open source implementation of a CFR based poker AI player.",
     long_description=get_package_description(),
     long_description_content_type="text/markdown",
-    url="https://github.com/fedden/poker_ai",
+    url="https://github.com/Nathan-Roll1/poker_ai",
     packages=setuptools.find_packages(),
     install_requires=get_requirements(),
     classifiers=[
